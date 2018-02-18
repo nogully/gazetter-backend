@@ -1,1 +1,8 @@
 node_modules/
+
+accessTokenKey.js
+accessTokenSecret.js
+consumerKey.js
+consumerSecret.js
+
+.DS_Store
