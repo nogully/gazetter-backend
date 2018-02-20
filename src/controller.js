@@ -16,13 +16,6 @@ function getPlaces(req, res, next) {
   })
 }
 
-function whyTho(request, response){
-  // send the stuffs over to me 
-  // i'll use the twitter package to grab the things 
-  // once i get the timeline then i'll send it over to the front end
-  eval(locus)
-}
-
 function getTweets(request, resp, next){
   console.log('getTweets run')
   var client = new Twitter({ consumer_key: consumer_key, 
@@ -32,10 +25,9 @@ function getTweets(request, resp, next){
    
   var params = {screen_name: 'noragully'};
 
-  client.get('statuses/user_timeline', params, function(error, tweets, response) {
-    if (!error) {
+  client.get('statuses/home_timeline', params, function(error, tweets, response) {
+    if (!error && response.statusCode == 200) {
       resp.send(tweets);
-      console.log(tweets[0]);
     } else {
       console.log(error);
     }
@@ -44,7 +36,6 @@ function getTweets(request, resp, next){
  
 
 
-module.exports = {
-  whyTho: whyTho, 
+module.exports = { 
   getTweets: getTweets
 };

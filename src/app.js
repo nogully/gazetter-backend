@@ -3,11 +3,13 @@ const path = require('path');
 const express = require('express');
 const cors = require('express-cors');
 const bodyParser = require('body-parser')
-const port = (process.env.PORT || 3000);
+const port = (process.env.PORT || 3001);
 const app = express();
 const router = require('./router');
 
-app.use(cors());
+app.use(cors({
+  allowedOrigins: ['localhost:3000']
+}));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
@@ -24,6 +26,11 @@ if (process.env.NODE_ENV !== 'production') {
     publicPath: config.output.publicPath
   }));
 }
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 app.use('/assets', express.static(path.join(__dirname, '../app/assets')));
 
@@ -31,6 +38,8 @@ app.get('/', function (req, res) { res.sendFile(path.join(__dirname, '/../index.
 
 app.use('/api', router);
 app.get('/*', function (req, res) { res.sendFile(path.join(__dirname, '/../index.html')) });
+
+
 
 app.listen(port);
 
