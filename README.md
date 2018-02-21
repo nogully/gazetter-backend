@@ -1,9 +1,16 @@
-## Miniature Express Back End
+## Gazetter Back End
 
-### For use with Module 3 FE Personal Projects
+Back end for https://github.com/nogully/gazetter
 
-### Installation
+#### Project Pitch
+- Love the news, but hate the newsfeed?  
+- The Twitter Gazette is for people who like to read the news through Twitter and yet find the newsfeed overwhelming. For every user, the Gazette will curate their most relevant newsworthy tweets from the Twitter API based on features such as: likes, retweets, credentials, proximity, etc. 
 
-1. Clone down this repo
-2. Run `npm install`
-3. Push to a different remote location on your own github account
+#### Stack
+- React
+- Redux
+- Router
+- Firebase OAuth
+- Express back end
+
+Class project for 3rd quarter of the Turing School Front End Engineering program (2018)
