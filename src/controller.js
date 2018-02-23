@@ -15,7 +15,7 @@ var client = new Twitter({ consumer_key: consumer_key,
 function getTweets(request, resp, next){  
   var params = {screen_name: 'noragully'};
 
-  client.get('statuses/home_timeline', params, function(error, tweets, response) {
+  client.get('statuses/home_timeline.json?count=200', params, function(error, tweets, response) {
     if (!error && response.statusCode == 200) {
       resp.send(tweets);
     } else {
