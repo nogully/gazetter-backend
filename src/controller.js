@@ -13,7 +13,8 @@ var client = new Twitter({ consumer_key: consumer_key,
 
 
 function getTweets(request, resp, next){  
-  var params = {screen_name: 'noragully'};
+  var params = {screen_name: 'noragully', 
+                tweet_mode: 'extended'};
 
   client.get('statuses/home_timeline.json?count=200', params, function(error, tweets, response) {
     if (!error && response.statusCode == 200) {
