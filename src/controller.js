@@ -25,11 +25,6 @@ function getTweets(request, resp, next){
   });
 }
 
-function filterTweets(req, resp, next) { 
-  var params = {screen_name: 'noragully'};
-
-}
-
 
 module.exports = { 
   getTweets: getTweets
