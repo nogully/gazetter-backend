@@ -1,4 +1,3 @@
-// const Server = require('./server');
 const path = require('path');
 const express = require('express');
 const cors = require('express-cors');
@@ -38,8 +37,6 @@ app.get('/', function (req, res) { res.sendFile(path.join(__dirname, '/../index.
 
 app.use('/api', router);
 app.get('/*', function (req, res) { res.sendFile(path.join(__dirname, '/../index.html')) });
-
-
 
 app.listen(port);
 
