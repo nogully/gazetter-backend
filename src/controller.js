@@ -30,7 +30,33 @@ function getTweets(request, resp, next){
   });
 }
 
+function userLogin(request, resp, next) {
+  var token = request.body.token;   
+  var secret = request.body.secret;
+  var name = request.body.username
+  console.log(request)
+  var client = new Twitter({ consumer_key: consumer_key, 
+                           consumer_secret: consumer_secret,
+                           access_token_key: token,
+                           access_token_secret: secret });
+  var params = { screen_name: username, 
+                 tweet_mode: 'extended' };
+
+  client.get('statuses/home_timeline.json?count=200', params, function(error, tweets, response) {
+    try {
+      if (!error && response.statusCode == 200) {
+        resp.send(tweets);
+      } else {
+        throw (error);
+      }
+    } catch (error) {
+      throw (error);
+    }
+  });
+}
+
 
 module.exports = { 
-  getTweets: getTweets
+  getTweets: getTweets,
+  userLogin: userLogin
 };
