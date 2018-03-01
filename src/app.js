@@ -1,4 +1,3 @@
-// const Server = require('./server');
 const path = require('path');
 const express = require('express');
 const cors = require('express-cors');
@@ -39,7 +38,17 @@ app.get('/', function (req, res) { res.sendFile(path.join(__dirname, '/../index.
 app.use('/api', router);
 app.get('/*', function (req, res) { res.sendFile(path.join(__dirname, '/../index.html')) });
 
+// app.post('handle',function(request,response){
+//   var query1=request.body.var1;
+//   var query2=request.body.var2;
+// });
 
+// app.post('/user',function(req, res){
+//   var token=req.body.token;   
+//   var secret=req.body.secret;
+  
+//   res.end("yes");
+// });
 
 app.listen(port);
 
